@@ -77,9 +77,9 @@ export class Cow {
         );
     }
 
-    private createCowModel(): void {
-        // No longer needed, replaced by loadCowModel
-    }
+    // private createCowModel(): void {
+    //     // This method is not currently used
+    // }
 
     private playAnimation(name: string) {
         if (!this.mixer || !this.actions[name]) return;
@@ -278,10 +278,9 @@ export class Cow {
         return new THREE.Vector3().copy(this.mesh.position).add(this.velocity);
     }
 
-    alignToNormal(normal: THREE.Vector3): void {
-        // For now, just keep cows upright
-        // We can add terrain alignment later if needed
-    }
+    // alignToNormal(_normal: THREE.Vector3): void {
+    //     // This method is not currently used
+    // }
 
     getMesh(): THREE.Group {
         return this.mesh;

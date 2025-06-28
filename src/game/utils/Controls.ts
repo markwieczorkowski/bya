@@ -7,7 +7,7 @@ export class Controls {
     private moveSpeed: number = 0.5;
     private rotateSpeed: number = 0.05;
     private verticalSpeed: number = 0.3;
-    private intendedMovement: THREE.Vector3 = new THREE.Vector3();
+    // private intendedMovement: THREE.Vector3 = new THREE.Vector3(); // Unused variable
 
     constructor(ufo: UFO) {
         this.ufo = ufo;

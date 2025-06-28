@@ -134,7 +134,7 @@ export class Terrain {
         return tree;
     }
 
-    private addFarmhouse(x: number, y: number, z: number): void {
+    private addFarmhouse(x: number, _y: number, z: number): void {
         const height = this.getHeightAt(x, z);
         const house = new THREE.Group();
         house.userData.type = 'building';
@@ -167,7 +167,7 @@ export class Terrain {
         this.mesh.add(house);
     }
 
-    private addBarn(x: number, y: number, z: number): void {
+    private addBarn(x: number, _y: number, z: number): void {
         const height = this.getHeightAt(x, z);
         const barn = new THREE.Group();
         barn.userData.type = 'building';

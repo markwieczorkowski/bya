@@ -18,7 +18,6 @@ export class Game {
     private levelElement: HTMLDivElement;
     private altitudeElement: HTMLDivElement;  // New altitude display element
     private colliders: THREE.Object3D[] = [];
-    private raycaster: THREE.Raycaster;
     private lastColliderUpdate: number = 0;
     private readonly COLLIDER_UPDATE_INTERVAL: number = 1000; // Update colliders every 1 second
     private lastBeamActive = false;
@@ -26,7 +25,6 @@ export class Game {
     // Victory state management
     private isVictorySequence: boolean = false;
     private victoryStartTime: number = 0;
-    private originalCameraPosition: THREE.Vector3 = new THREE.Vector3();
     private victoryMessage: THREE.Group | null = null;
     private victoryParticles: THREE.Group | null = null;
 
@@ -36,7 +34,6 @@ export class Game {
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.shadowMap.enabled = true;
-        this.raycaster = new THREE.Raycaster();
 
         // Create score overlay
         this.scoreElement = document.createElement('div');
@@ -557,7 +554,6 @@ export class Game {
     private startVictorySequence(): void {
         this.isVictorySequence = true;
         this.victoryStartTime = Date.now();
-        this.originalCameraPosition = this.camera.position.clone();
         
         console.log('Victory sequence started!');
     }
@@ -569,7 +565,7 @@ export class Game {
         const letters = 'MISSION COMPLETE'.split('');
         let xOffset = -8; // Start position
         
-        letters.forEach((letter, index) => {
+        letters.forEach((letter, _index) => {
             if (letter === ' ') {
                 xOffset += 1.2;
                 return;
