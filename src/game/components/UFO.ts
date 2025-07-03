@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { Terrain } from './Terrain';
 // Alien by Poly by Google [CC-BY] via Poly Pizza
 // @ts-ignore: Ignore missing type declaration for GLTFLoader if not present
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 export class UFO {
     private mesh: THREE.Group;
@@ -546,7 +546,7 @@ export class UFO {
     private loadAlienModel(dome: THREE.Mesh): void {
         const loader = new GLTFLoader();
         loader.load(
-            '/src/models/Alien.glb',
+            '/models/Alien.glb',
             (gltf: any) => {
                 const alien = gltf.scene;
                 // Scale down further for proper fit
@@ -561,7 +561,7 @@ export class UFO {
                 dome.add(this.alienGroup);
             },
             undefined,
-            (error: ErrorEvent) => {
+            (error: unknown) => {
                 console.error('Error loading Alien.glb:', error);
             }
         );
