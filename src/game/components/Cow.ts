@@ -41,7 +41,7 @@ export class Cow {
 
         const loader = new GLTFLoader();
         loader.load(
-            '/models/Cow.glb',
+            './models/Cow.glb',
             (gltf: any) => {
                 // Remove placeholder
                 this.mesh.remove(placeholder);

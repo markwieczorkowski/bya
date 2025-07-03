@@ -546,7 +546,7 @@ export class UFO {
     private loadAlienModel(dome: THREE.Mesh): void {
         const loader = new GLTFLoader();
         loader.load(
-            '/models/Alien.glb',
+            './models/Alien.glb',
             (gltf: any) => {
                 const alien = gltf.scene;
                 // Scale down further for proper fit
