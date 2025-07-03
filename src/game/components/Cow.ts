@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 // @ts-ignore: Ignore missing type declaration for GLTFLoader if not present
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { AnimationMixer, AnimationAction, Clock } from 'three';
 // Optionally import type { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 
@@ -32,10 +32,10 @@ export class Cow {
     }
 
     private loadCowModel(): void {
-        // Create a placeholder while loading
+        // Add a placeholder while loading
         const placeholder = new THREE.Mesh(
             new THREE.BoxGeometry(1, 1, 1),
-            new THREE.MeshBasicMaterial({ color: 0x888888, wireframe: true })
+            new THREE.MeshStandardMaterial({ color: 0x888888 })
         );
         this.mesh.add(placeholder);
 
@@ -71,7 +71,7 @@ export class Cow {
                 }
             },
             undefined,
-            (error: unknown) => {
+            (error: ErrorEvent) => {
                 console.error('Error loading Cow.glb:', error);
             }
         );
